@@ -61,7 +61,7 @@ const tabsAppender = (selector) => {
   
   axios.get(`http://localhost:5001/api/topics`)
     .then(result =>{
-      document.querySelector(selector).appendChild(Card(res.data.topics));
+      document.querySelector(selector).appendChild(Card(result.data.topics));
     })
 
     //For this for loop above ^^^ I might want to try and turn the topics info into an Array
