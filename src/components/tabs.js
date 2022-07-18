@@ -58,6 +58,15 @@ const tabsAppender = (selector) => {
   // Find the array of topics inside the response, and create the tabs using the Tabs component.
   // Append the tabs to the element in the DOM that matches the selector passed to the function.
   //
+  
+  axios.get(`http://localhost:5001/api/topics`)
+    .then(result =>{
+      document.querySelector(selector).appendChild(Card(res.data.topics));
+    })
+
+    //For this for loop above ^^^ I might want to try and turn the topics info into an Array
+// like we were doing last week in class, and then forEach over it.
+
 }
 
 export { Tabs, tabsAppender }
