@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { topics } from '../mocks/data';
+// import { topics } from '../mocks/data';
 
 const Tabs = (topics) => {
   // TASK 3
