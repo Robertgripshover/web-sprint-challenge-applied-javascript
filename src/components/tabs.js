@@ -15,8 +15,6 @@ const Tabs = (topics) => {
   //   <div class="tab">bootstrap</div>
   //   <div class="tab">technology</div>
   // </div>
-  
-
   const topicsDiv = document.createElement('div');
   const javascriptTab = document.createElement('div');
   const bootstrapTab = document.createElement('div');
@@ -37,22 +35,10 @@ const Tabs = (topics) => {
   jqueryTab.classList.add('tab');
   nodeTab.classList.add('tab');
 
-//For this for loop below VVV I might want to try and turn the topics info into an Array
-// like we were doing last week in class, and then forEach over it.
+    topicsDiv.textContent = topics;
 
-//TAKING THIS OUT FOR A SECOND FOR EXPERIMENTSvvv Part 1
-  // for (let i=0; i < topics.length; i++){
-  //   javascriptTab.textContent = topics[i];
-  //   bootstrapTab.textContent = topics[i];
-  //   technologyTab.textContent = topics[i];
-  //   jqueryTab.textContent = topics[i];
-  //   nodeTab.textContent = topics[i];
-  // }
-//TAKING THIS OUT FOR A SECOND FOR EXPERIMENTS^^^
-
-topicsDiv.textContent = topics;
-    
   return topicsDiv;
+
 }
 
 const tabsAppender = (selector) => {
@@ -62,23 +48,21 @@ const tabsAppender = (selector) => {
   // It should obtain topics from this endpoint: `http://localhost:5001/api/topics` (test it with a console.log!).
   // Find the array of topics inside the response, and create the tabs using the Tabs component.
   // Append the tabs to the element in the DOM that matches the selector passed to the function.
-  
-
-//TAKING THIS OUT FOR A SECOND FOR EXPERIMENTSvvv Part 2
-  // axios.get(`http://localhost:5001/api/topics`)
-  //   .then(result =>{
-  //     document.querySelector(selector).appendChild(Tabs(result.data.topics));
-  //   })
-//TAKING THIS OUT FOR A SECOND FOR EXPERIMENTS^^^
-
+ 
+const main = document.querySelector(selector)
+const section = document.createElement('section')
+main.appendChild(section)
 axios.get(`http://localhost:5001/api/topics`)
   .then(result => {
-    const theTopics = result.data.topics;
-    theTopics.forEach(topicsObj => {
-      document.querySelector(selector).appendChild(Tabs(topicsObj))
-    })
-  })
+    const theTopics = result.data.topics
+    })   
 
-}
+    theTopics.map(topicsObj => {
+      main.appendChild(Tabs(topicsObj))
+    })
+    }
+        
+  
+
 
 export { Tabs, tabsAppender }
