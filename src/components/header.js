@@ -43,8 +43,6 @@ const headerAppender = (selector) => {
 
   target_element.appendChild(Header('Lambda Times', '7/18/22', '84'));
 
-//This thing directly above ^^^ might need to have just the title, temp, and date put in instead of the strings
-
 }
 
 export { Header, headerAppender }
