@@ -51,10 +51,6 @@ const Tabs = (topics) => {
     // jqueryTab.textContent = theTopics[i];
     // nodeTab.textContent = theTopics[i];}
     //EXPERIMENTAL^^^
-
-
-
-
   return topicsDiv;
 
 }
@@ -67,23 +63,21 @@ const tabsAppender = (selector) => {
   // Find the array of topics inside the response, and create the tabs using the Tabs component.
   // Append the tabs to the element in the DOM that matches the selector passed to the function.
  
-axios.get(`http://localhost:5001/api/topics`)
+  axios.get(`http://localhost:5001/api/topics`)
   .then(result => {
     const theTopics = result.data.topics
-    document.querySelector(selector).appendChild(Tabs(theTopics))
+     document.querySelector(selector).appendChild(Tabs(theTopics))
     })
 
 
-    
-    } 
-    
-
-  //   axios.get(`http://localhost:5001/api/topics`)
+  // axios.get(`http://localhost:5001/api/topics`)
   // .then(result => {
-  // document.querySelector(selector).appendChild(Tabs(result.data.topics))
+  //   const theTopics = result.data.topics
+  //   theTopics.map(topicsObj => {
+  //     document.querySelector(selector).appendChild(Tabs(topicsObj)) 
   //   })
-
-
+  //   })
         
-    
-export { Tabs, tabsAppender }
+    }
+       
+    export { Tabs, tabsAppender }
