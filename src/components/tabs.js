@@ -37,11 +37,11 @@ const Tabs = (topics) => {
 
     // topicsDiv.textContent = topics // THIS MAKE IT BE 10 OUT OF 11
     
-    javascriptTab.textContent = topics
-    bootstrapTab.textContent = topics
-    technologyTab.textContent = topics
-    jqueryTab.textContent = topics
-    nodeTab.textContent = topics
+    javascriptTab.textContent = topics[0]
+    bootstrapTab.textContent = topics[1]
+    technologyTab.textContent = topics[2]
+    jqueryTab.textContent = topics[3]
+    nodeTab.textContent = topics[4]
 
     //EXPERIMENTALvvv
     // for(let i=0; i < theTopics.length; i++){
@@ -63,6 +63,7 @@ const tabsAppender = (selector) => {
   // Find the array of topics inside the response, and create the tabs using the Tabs component.
   // Append the tabs to the element in the DOM that matches the selector passed to the function.
  
+  //THIS ONE IS REALLY CLOSE TO WORKING!!!
   axios.get(`http://localhost:5001/api/topics`)
   .then(result => {
     const theTopics = result.data.topics
@@ -70,14 +71,12 @@ const tabsAppender = (selector) => {
     })
 
 
-  // axios.get(`http://localhost:5001/api/topics`)
-  // .then(result => {
-  //   const theTopics = result.data.topics
-  //   theTopics.map(topicsObj => {
-  //     document.querySelector(selector).appendChild(Tabs(topicsObj)) 
-  //   })
-  //   })
-        
+    // axios.get(`http://localhost:5001/api/topics`)
+    // .then(result => {
+    //   const theTopics = result.data.topics
+    //    Tabs(document.querySelector(selector).appendChild(theTopics))
+    //   })
+
     }
        
     export { Tabs, tabsAppender }
